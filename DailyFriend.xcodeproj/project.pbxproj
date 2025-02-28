@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EBDC4A052D718C5E00DD03A3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = EBDC4A042D718C5E00DD03A3 /* Lottie */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		EBBDA9FC2D700E9700A9A463 /* DailyFriend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyFriend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,16 +27,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBDC4A052D718C5E00DD03A3 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB19059C2D718380005976F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EBBDA9F32D700E9600A9A463 = {
 			isa = PBXGroup;
 			children = (
 				EBBDA9FE2D700E9700A9A463 /* DailyFriend */,
+				EB19059C2D718380005976F4 /* Frameworks */,
 				EBBDA9FD2D700E9700A9A463 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,6 +78,7 @@
 			);
 			name = DailyFriend;
 			packageProductDependencies = (
+				EBDC4A042D718C5E00DD03A3 /* Lottie */,
 			);
 			productName = DailyFriend;
 			productReference = EBBDA9FC2D700E9700A9A463 /* DailyFriend.app */;
@@ -94,6 +108,9 @@
 			);
 			mainGroup = EBBDA9F32D700E9600A9A463;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				EBDC4A032D718C5E00DD03A3 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EBBDA9FD2D700E9700A9A463 /* Products */;
 			projectDirPath = "";
@@ -339,6 +356,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EBDC4A032D718C5E00DD03A3 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EBDC4A042D718C5E00DD03A3 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBDC4A032D718C5E00DD03A3 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EBBDA9F42D700E9600A9A463 /* Project object */;
 }

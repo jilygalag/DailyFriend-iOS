@@ -11,6 +11,8 @@ import AVKit
 struct ContentView: View {
     @State private var selectedVoice: String? = nil
     @State private var audioPlayer: AVPlayer?
+    @State private var isCloudPlaying = false
+    
     let voiceSamples = [
         (name: "Meadow", url: URL(string: "https://static.dailyfriend.ai/conversations/samples/1/1/audio.mp3")!),
         (name: "Cypress", url: URL(string: "https://static.dailyfriend.ai/conversations/samples/2/1/audio.mp3")!),
@@ -25,12 +27,10 @@ struct ContentView: View {
             Text("Pick my voice")
                 .font(.title)
                 .bold()
-            
-            Image(systemName: "cloud.fill") // Replace with actual cloud image
-                .resizable()
-                .scaledToFit()
-                .frame(width: 80, height: 80)
-                .foregroundColor(.gray)
+
+            LottieView(urlString: "https://static.dailyfriend.ai/images/mascot-animation.json",
+                       isPlaying: $isCloudPlaying)
+                .frame(width: 200, height: 200)
             
             Text("Find the voice that resonates with you")
                 .font(.subheadline)
@@ -41,6 +41,7 @@ struct ContentView: View {
                     let name = voice.name
                     VoiceOptionView(voice: name, isSelected: selectedVoice == name) {
                         selectedVoice = voice.name
+                        isCloudPlaying = true
                         playAudio(from: voice.url)
                     }
                 }
@@ -67,12 +68,6 @@ struct ContentView: View {
     func playAudio(from url: URL) {
         audioPlayer = AVPlayer(url: url)
         audioPlayer?.play()
-    }
-
-    func playRandomSample() {
-        if let randomVoice = voiceSamples.randomElement() {
-            playAudio(from: randomVoice.url)
-        }
     }
 }
 
