@@ -11,7 +11,7 @@ import AVKit
 struct DetailView: View {
     @State private var isCloudPlaying = false
     @State private var title: String = "Loading..."
-    @State private var audioPlayer: AVPlayer?
+    @State private var audioPlayer = AVPlayer()
     @State private var playCount = 0
     
     private let maxPlays = 3
@@ -29,22 +29,9 @@ struct DetailView: View {
         }
         .onAppear {
             playRandom()
-            
-            NotificationCenter.default.addObserver(
-                forName: .AVPlayerItemDidPlayToEndTime,
-                object: audioPlayer?.currentItem,
-                queue: .main
-            ) { _ in
-                playCount += 1
-                if playCount < maxPlays {
-                    playRandom()
-                } else {
-                    isCloudPlaying = false
-                }
-            }
         }
         .onDisappear() {
-            audioPlayer?.pause()
+            audioPlayer.pause()
         }
         .padding()
     }
@@ -86,7 +73,21 @@ struct DetailView: View {
     func playAudio(stringUrl: String) {
         guard let url = URL(string: stringUrl) else { return }
         isCloudPlaying = true
+        
         audioPlayer = AVPlayer(url: url)
-        audioPlayer?.play()
+        audioPlayer.play()
+        
+        NotificationCenter.default.addObserver(
+            forName: .AVPlayerItemDidPlayToEndTime,
+            object: audioPlayer.currentItem,
+            queue: .main
+        ) { _ in
+            playCount += 1
+            if playCount < maxPlays {
+                playRandom()
+            } else {
+                isCloudPlaying = false
+            }
+        }
     }
 }
