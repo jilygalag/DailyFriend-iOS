@@ -14,12 +14,36 @@ struct ContentView: View {
     @State private var isCloudPlaying = false
     
     let voiceSamples = [
-        (name: "Meadow", url: URL(string: "https://static.dailyfriend.ai/conversations/samples/1/1/audio.mp3")!),
-        (name: "Cypress", url: URL(string: "https://static.dailyfriend.ai/conversations/samples/2/1/audio.mp3")!),
-        (name: "Iris", url: URL(string: "https://static.dailyfriend.ai/conversations/samples/3/1/audio.mp3")!),
-        (name: "Hawke", url: URL(string: "https://static.dailyfriend.ai/conversations/samples/4/1/audio.mp3")!),
-        (name: "Seren", url: URL(string: "https://static.dailyfriend.ai/conversations/samples/5/1/audio.mp3")!),
-        (name: "Stone", url: URL(string: "https://static.dailyfriend.ai/conversations/samples/6/1/audio.mp3")!)
+        VoiceOption(
+            name: "Meadow",
+            audioStringUrl: "https://static.dailyfriend.ai/conversations/samples/1/%d/audio.mp3",
+            imageStringUrl: "https://static.dailyfriend.ai/images/voices/meadow.svg"
+        ),
+        VoiceOption(
+            name: "Cypress",
+            audioStringUrl: "https://static.dailyfriend.ai/conversations/samples/2/%d/audio.mp3",
+            imageStringUrl: "https://static.dailyfriend.ai/images/voices/cypress.svg"
+        ),
+        VoiceOption(
+            name: "Iris",
+            audioStringUrl: "https://static.dailyfriend.ai/conversations/samples/3/%d/audio.mp3",
+            imageStringUrl: "https://static.dailyfriend.ai/images/voices/iris.svg"
+        ),
+        VoiceOption(
+            name: "Hawke",
+            audioStringUrl: "https://static.dailyfriend.ai/conversations/samples/4/%d/audio.mp3",
+            imageStringUrl: "https://static.dailyfriend.ai/images/voices/hawke.svg"
+        ),
+        VoiceOption(
+            name: "Seren",
+            audioStringUrl: "https://static.dailyfriend.ai/conversations/samples/5/%d/audio.mp3",
+            imageStringUrl: "https://static.dailyfriend.ai/images/voices/seren.svg"
+        ),
+        VoiceOption(
+            name: "Stone",
+            audioStringUrl: "https://static.dailyfriend.ai/conversations/samples/6/%d/audio.mp3",
+            imageStringUrl: "https://static.dailyfriend.ai/images/voices/stone.svg"
+        )
     ]
         
     var body: some View {
@@ -37,12 +61,16 @@ struct ContentView: View {
                 .foregroundColor(.gray)
             
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-                ForEach(voiceSamples, id: \..name) { voice in
-                    let name = voice.name
-                    VoiceOptionView(voice: name, isSelected: selectedVoice == name) {
+                ForEach(voiceSamples, id: \.name) { voice in
+                    VoiceOptionView(name: voice.name,
+                                    imageString: voice.imageStringUrl,
+                                    isSelected: selectedVoice == voice.name) {
                         selectedVoice = voice.name
                         isCloudPlaying = true
-                        playAudio(from: voice.url)
+                        let audioStringUrl = String(format: voice.audioStringUrl, Int.random(in: 1...20))
+                        if let url = URL(string: audioStringUrl) {
+                            playAudio(from: url)
+                        }
                     }
                 }
             }
@@ -72,7 +100,8 @@ struct ContentView: View {
 }
 
 struct VoiceOptionView: View {
-    let voice: String
+    let name: String
+    let imageString: String
     let isSelected: Bool
     let onSelect: () -> Void
     
@@ -91,7 +120,7 @@ struct VoiceOptionView: View {
                                 .frame(width: 30, height: 30)
                                 .foregroundColor(.orange)
                             
-                            Text(voice)
+                            Text(name)
                                 .font(.headline)
                         }
                     )
@@ -105,6 +134,12 @@ struct VoiceOptionView: View {
         }
         .buttonStyle(PlainButtonStyle())
     }
+}
+
+struct VoiceOption {
+    let name: String
+    let audioStringUrl: String
+    let imageStringUrl: String
 }
 
 struct ContentView_Previews: PreviewProvider {
