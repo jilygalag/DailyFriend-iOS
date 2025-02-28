@@ -1,5 +1,5 @@
 {
-  "originHash" : "6b3386dc9ff1f3a74f1534de9c41d47137eae0901cfe819ed442f1b241549359",
+  "originHash" : "e94a6ae99b3094c767d9f503934b4f502c265935c7840300c1ffd8544f8fe6d9",
   "pins" : [
     {
       "identity" : "lottie-spm",
@@ -8,6 +8,33 @@
       "state" : {
         "revision" : "8c6edf4f0fa84fe9c058600a4295eb0c01661c69",
         "version" : "4.5.1"
+      }
+    },
+    {
+      "identity" : "sdwebimage",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImage.git",
+      "state" : {
+        "revision" : "cac9a55a3ae92478a2c95042dcc8d9695d2129ca",
+        "version" : "5.21.0"
+      }
+    },
+    {
+      "identity" : "sdwebimagesvgcoder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImageSVGCoder.git",
+      "state" : {
+        "revision" : "85b5d58ad02c207c496fa34426dc6560d6ae32f0",
+        "version" : "1.8.0"
+      }
+    },
+    {
+      "identity" : "sdwebimageswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SDWebImage/SDWebImageSwiftUI.git",
+      "state" : {
+        "revision" : "451c6dfd5ecec2cf626d1d9ca81c2d4a60355172",
+        "version" : "3.1.3"
       }
     }
   ],

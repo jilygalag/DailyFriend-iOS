@@ -7,6 +7,8 @@
 
 import SwiftUI
 import AVKit
+import SDWebImageSwiftUI
+import SDWebImageSVGCoder
 
 struct ContentView: View {
     @State private var selectedVoice: String? = nil
@@ -93,6 +95,11 @@ struct ContentView: View {
         .padding()
     }
     
+    init() {
+        let SVGCoder = SDImageSVGCoder.shared
+        SDImageCodersManager.shared.addCoder(SVGCoder)
+    }
+    
     func playAudio(from url: URL) {
         audioPlayer = AVPlayer(url: url)
         audioPlayer?.play()
@@ -114,11 +121,10 @@ struct VoiceOptionView: View {
                     .frame(height: 100)
                     .overlay(
                         VStack {
-                            Image(systemName: "leaf.fill") // Placeholder for custom voice icon
+                            WebImage(url: URL(string: imageString))
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 30, height: 30)
-                                .foregroundColor(.orange)
+                                .frame(width: 50, height: 50)
                             
                             Text(name)
                                 .font(.headline)

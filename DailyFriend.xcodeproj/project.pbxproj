@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB669EFC2D71C900007ADEC0 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = EB669EFB2D71C900007ADEC0 /* SDWebImageSwiftUI */; };
+		EB669EFF2D71C91D007ADEC0 /* SDWebImageSVGCoder in Frameworks */ = {isa = PBXBuildFile; productRef = EB669EFE2D71C91D007ADEC0 /* SDWebImageSVGCoder */; };
 		EBDC4A052D718C5E00DD03A3 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = EBDC4A042D718C5E00DD03A3 /* Lottie */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB669EFF2D71C91D007ADEC0 /* SDWebImageSVGCoder in Frameworks */,
+				EB669EFC2D71C900007ADEC0 /* SDWebImageSwiftUI in Frameworks */,
 				EBDC4A052D718C5E00DD03A3 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,6 +83,8 @@
 			name = DailyFriend;
 			packageProductDependencies = (
 				EBDC4A042D718C5E00DD03A3 /* Lottie */,
+				EB669EFB2D71C900007ADEC0 /* SDWebImageSwiftUI */,
+				EB669EFE2D71C91D007ADEC0 /* SDWebImageSVGCoder */,
 			);
 			productName = DailyFriend;
 			productReference = EBBDA9FC2D700E9700A9A463 /* DailyFriend.app */;
@@ -110,6 +116,8 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				EBDC4A032D718C5E00DD03A3 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				EB669EFA2D71C900007ADEC0 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				EB669EFD2D71C91D007ADEC0 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EBBDA9FD2D700E9700A9A463 /* Products */;
@@ -358,6 +366,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EB669EFA2D71C900007ADEC0 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.3;
+			};
+		};
+		EB669EFD2D71C91D007ADEC0 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSVGCoder.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.0;
+			};
+		};
 		EBDC4A032D718C5E00DD03A3 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
@@ -369,6 +393,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EB669EFB2D71C900007ADEC0 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB669EFA2D71C900007ADEC0 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		EB669EFE2D71C91D007ADEC0 /* SDWebImageSVGCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB669EFD2D71C91D007ADEC0 /* XCRemoteSwiftPackageReference "SDWebImageSVGCoder" */;
+			productName = SDWebImageSVGCoder;
+		};
 		EBDC4A042D718C5E00DD03A3 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EBDC4A032D718C5E00DD03A3 /* XCRemoteSwiftPackageReference "lottie-spm" */;
