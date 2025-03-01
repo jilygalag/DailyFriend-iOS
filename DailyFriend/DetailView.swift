@@ -27,6 +27,7 @@ struct DetailView: View {
             Text(title)
                 .font(.title)
         }
+        .padding(8)
         .onAppear {
             playRandom()
         }

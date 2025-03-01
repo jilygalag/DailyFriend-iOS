@@ -42,6 +42,7 @@ struct VoiceOptionView: View {
             }
         }
         .buttonStyle(PlainButtonStyle())
+        .padding(4)
         .onAppear() {
             let SVGCoder = SDImageSVGCoder.shared
             SDImageCodersManager.shared.addCoder(SVGCoder)
